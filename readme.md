@@ -23,7 +23,7 @@ equality is expressed by ==_
 
 ---`
 
-### Loops and Iterationys
+### Loops and Iterations
 
 The standard approach in most programming languages for repeating a process a certain number of times, such as moving sequentially through an array to perform the same operations on each item, involves a loop.
 
