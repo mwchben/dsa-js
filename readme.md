@@ -21,4 +21,26 @@ The element in the 7th position is 35, and we use the notation `a[7]` to denote 
 **NB: In most modern programming languages, = denotes assignment, while
 equality is expressed by ==**
 
+---`
+
+### Loops and Iterationys
+
+The standard approach in most programming languages for repeating a process a certain number of times, such as moving sequentially through an array to perform the same operations on each item, involves a loop.
+
+```
+for (let i = 0, sum = 0; i < a.length; i++) {
+    sum+=a[i]
+    // a.lenght is the length of the array (7)
+    console.log(sum);
+    // sum = sum + a[i] is the same as sum = sum + a[i] + a[i+1] + a[i+2] + a[i+3] + a[i+4] + a[i+5] + a[i+6]
+}
+
+```
+
+We say that there is iteration over the index i. The general for-loop structure is
+```
+    for ( INITIALIZATION ; CONDITION ; UPDATE ) {
+     REPEATED PROCESS
+    }
+```
 ---
