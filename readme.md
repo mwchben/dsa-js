@@ -49,23 +49,22 @@ We say that there is iteration over the index i. The general for-loop structure 
 Describes a condition that does not change during execution of a given program or algorithm; they are important for dsa because they enable `correctness proofs` and `verification`
 
 ```
-var n = 10;
-
-const minimum = (n, array =[n]) => {
-    let min = a[0];
+var b = [1,2,3,4,5]
+var n = b.length
+    let min = b[0];
+    console.log(min,"START");
     // min equals the minimum item in a[0],...,a[0]
+    
     for(let i = 1 ; i != n ; i++) {
-        console.log(min);
+        console.log(min,"Iteration");
     // min equals the minimum item in a[0],...,a[i-1]
+
     if (a[i] < min) min = a[i];
     }
-    console.log(min);
+    console.log(min,"End");
     // min equals the minimum item in a[0],...,a[i-1], and i==n
-    return min;
-}
 
-
-```
+_check imgs folder (invariant.png)_
 This is a proof by induction example where the invariant is true at the start of the loop, and is preserved by each iteration of the loop, therefore it must be true at the end of the loop.
-```
+
 ---
