@@ -64,6 +64,8 @@ var n = b.length
     console.log(min,"End");
     // min equals the minimum item in a[0],...,a[i-1], and i==n
 
+```
+
 _check imgs folder (invariant.png)_
 This is a proof by induction example where the invariant is true at the start of the loop, and is preserved by each iteration of the loop, therefore it must be true at the end of the loop.
 
