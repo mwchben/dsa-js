@@ -76,6 +76,6 @@
     const first = list.getFirst()
 
     console.log("size is:",size);  //size is: 2
-    console.log("First node is:",first);  //size is: 2
-    console.log("last node is:",last);  //size is: 2
+    console.log("First node is:",first);  //First node is: 10
+    console.log("last node is:",last);  //last node is: linkNodeClass { data: 50, next: null }
  
