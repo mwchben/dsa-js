@@ -30,5 +30,4 @@ var n = b.length
     }
     console.log(min,"End");
     // min equals the minimum item in a[0],...,a[i-1], and i==n
-
-
+    

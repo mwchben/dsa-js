@@ -67,6 +67,13 @@ var n = b.length
 ```
 
 _check imgs folder (invariant.png)_
+
 This is a proof by induction example where the invariant is true at the start of the loop, and is preserved by each iteration of the loop, therefore it must be true at the end of the loop.
 
 ---
+
+### Linked Lists
+Are a linear collections of data elements where each element points to the next; each node is composed of data and a reference `link` to the next node in the sequence. 
+- allows for efficient insertion or removal of elements from any position in the sequence during iteration.
+- access time is linear; difficult to pipeline. Unlike arrays, random access of data elements is not allowed. Nodes are accessed sequentially starting from the first node.
+- It uses more memory than arrays because of the storage of the pointers.
