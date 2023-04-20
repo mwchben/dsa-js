@@ -52,13 +52,33 @@
                     lastNode = lastNode.next
                 }
             }
-            return lastNode
+            return lastNode.data
         }
 
         //This method returns the first node of the linked list.
         getFirst() {
             return this.head.data;
         }
+
+        //This method adds a new node at the end of the linked list.
+        Add(value){
+            let newNode = new linkNodeClass(value)
+            let lastNodeIs = this.getLast()
+            lastNodeIs = newNode
+            // console.log(valueToAdd, "Value to Add");
+            // if (head = null){
+            //     this.head = valueToAdd
+            // }
+            // else {
+            //     let node = this.head
+            //     while (node.next) {
+            //         node = node.next
+            //     }
+            //     node.next = valueToAdd
+            // }
+            return lastNodeIs
+        }
+            
 
     }
 
@@ -71,6 +91,8 @@
     console.log("node1 is:",list.head.data);  //node1 is: 10
     console.log("node2 is:",list.head.next.data);  //node2 is: 20
 
+
+    list.Add(345)
     const size = list.size()
     const last = list.getLast()
     const first = list.getFirst()
@@ -78,4 +100,6 @@
     console.log("size is:",size);  //size is: 2
     console.log("First node is:",first);  //First node is: 10
     console.log("last node is:",last);  //last node is: linkNodeClass { data: 50, next: null }
+
+    
  
