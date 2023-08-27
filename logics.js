@@ -19,29 +19,33 @@ Do NOT include quotes (single or double) in the output.
 */
 
 let count = 0;
+let array = ["Bet","Hold"];
 
 function cc(card) {
 
-  switch (card) {
+  switch (card){
     case 2:
     case 3:
     case 4:
     case 5:
     case 6:
-      count++;
-      break;
+    count++;
+    break;
+
     case 10:
     case "J":
     case "Q":
     case "K":
     case "A":
-      count--;
-      break;
+    count--;
+    break;
+
   }
-  if (count > 0) {
-    return count + " Bet";
-  } else {
-    return count + " Hold";
+
+  if (count>0){
+    return count+" "+array[0]
+  }else{
+    return count+" "+array[1]
   }
 
 }
