@@ -8,6 +8,33 @@ nb: In order for JavaScript to compare two different data types (for example, nu
 Strict equality (===) is the counterpart to the equality operator (==). However, unlike the equality operator, which attempts to convert both values being compared to a common type, the strict equality operator does not perform a type conversion.
 
 ---
+
+### objects
+
+Build JavaScript Objects
+You may have heard the term object before.
+
+Objects are similar to arrays, except that instead of using indexes to access and modify their data, you access the data in objects through what are called properties.
+
+Objects are useful for storing data in a structured way, and can represent real world objects, like a cat.
+
+Here's a sample cat object:
+
+const cat = {
+  "name": "Whiskers",
+  "legs": 4,
+  "tails": 1,
+  "enemies": ["Water", "Dogs"]
+};
+In this example, all the properties are stored as strings, such as name, legs, and tails. However, you can also use numbers as properties. You can even omit the quotes for single-word string properties, as follows:
+
+const anotherObject = {
+  make: "Ford",
+  5: "five",
+  "model": "focus"
+};
+However, if your object has any non-string properties, JavaScript will automatically typecast them as strings.
+
 ### Queue
 
 In Computer Science a queue is an abstract Data Structure where items are kept in order. New items can be added at the back of the queue and old items are taken off from the front of the queue.
