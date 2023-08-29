@@ -31,3 +31,26 @@ function golfScore(par, strokes) {
 let answ = golfScore(4,2);
 
 console.log("answer is:", answ) 
+
+// Code for a lookup table
+
+// Setup
+function phoneticLookup(val) {
+  let result = "";
+
+  const lookup = {
+    "alpha": "Adams",
+    "bravo": "Boston",
+    "charlie": "Chicago",
+    "echo": "Easy",
+    "delta": "Denver",
+    "foxtrot": "Frank"
+
+  }
+
+ result = lookup[val]
+
+  return result;
+}
+
+phoneticLookup("charlie");
