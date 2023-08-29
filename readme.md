@@ -34,6 +34,26 @@ const anotherObject = {
   "model": "focus"
 };
 However, if your object has any non-string properties, JavaScript will automatically typecast them as strings.
+2
+
+#### Accessing Object Properties with Variables
+- Another use of bracket notation on objects is to access a property which is stored as the value of a variable. - This can be very useful for iterating through an object's properties or when accessing a lookup table.
+
+Here is an example of using a variable to access a property:
+
+`
+const dogs = {
+  Fido: "Mutt",
+  Hunter: "Doberman",
+  Snoopie: "Beagle"
+};
+
+
+const myDog = "Hunter";
+const myBreed = dogs[myDog];
+console.log(myBreed);
+`
+The string Doberman would be displayed in the console.
 
 ### Queue
 
