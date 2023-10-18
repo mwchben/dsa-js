@@ -112,3 +112,52 @@ sum([1,2,3,4], 3) catches 6, returns 6 + 4.
 
 Recursion isn't an easy concept to grasp, but once you've got it it's an extremely powerful tool. It's the foundation of the Divide and Conquer technique and is the reason many algorithms are efficient enough to use practically.
 */
+
+
+/* Function like to search through a contact list with conditions like name and prop is given, name not there
+to show no record where name == fName and prop not there to show prop not there
+*/
+
+const contacts = [
+    {
+      firstName: "Akira",
+      lastName: "Laine",
+      number: "0543236543",
+      likes: ["Pizza", "Coding", "Brownie Points"],
+    },
+    {
+      firstName: "Harry",
+      lastName: "Potter",
+      number: "0994372684",
+      likes: ["Hogwarts", "Magic", "Hagrid"],
+    },
+    {
+      firstName: "Sherlock",
+      lastName: "Holmes",
+      number: "0487345643",
+      likes: ["Intriguing Cases", "Violin"],
+    },
+    {
+      firstName: "Kristian",
+      lastName: "Vos",
+      number: "unknown",
+      likes: ["JavaScript", "Gaming", "Foxes"],
+    },
+  ];
+  
+  function lookUpProfile(name, prop) {
+    for (let x = 0; x < contacts.length; x++) {
+      if (contacts[x].firstName === name) {
+        if (contacts[x].hasOwnProperty(prop)) {
+          return contacts[x][prop];
+        } else {
+          return "No such property";
+        }
+      }
+    }
+    return "No such contact";
+  }
+  
+  let ans = lookUpProfile("Harry", "likes");
+
+  console.log(ans)
