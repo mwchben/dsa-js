@@ -161,7 +161,27 @@ However, notice that multiply(arr, n) == multiply(arr, n - 1) * arr[n - 1]. That
 The recursive version of multiply breaks down like this. In the base case, where n <= 0, it returns 1. For larger values of n, it calls itself, but with n - 1. That function call is evaluated in the same way, calling multiply again until n <= 0. At this point, all the functions can return and the original multiply returns the answer.
 
 Note: Recursive functions must have a base case when they return without calling the function again (in this example, when n <= 0), otherwise they can never finish executing.
+##### Base case 
+It tells the recursive function when it no longer needs to call itself. It is a simple case where the return value is already known. There will also be a recursive call which executes the original function with different arguments. If the function is written correctly, eventually the base case will be reached.
 
+##### use recursion by calling itself
+The function will return an array of integers which begins with a number represented by the startNum parameter and ends with a number represented by the endNum parameter. 
+The starting number will always be less than or equal to the ending number. 
+This function uses recursion by calling itself and doesn't use loops of any kind && also works for cases where both startNum and endNum are the same.
+
+`
+function rangeOfNumbers(startNum, endNum) {
+  if (endNum < startNum) {
+    return [];
+  } else {
+    const numbers = rangeOfNumbers(startNum, endNum - 1);
+    numbers.push(endNum);
+    return numbers;
+  }
+}
+`
+
+## Notables
 
 ##### Math.floor( Math.random() * (max - min) + min)
 We know that Math.random() returns a value in the range [0, 1). 0 is included but 1 is excluded. You can think of it as the range 0 to 0.999999...
@@ -221,3 +241,16 @@ So if we add the min value onto the end of our formula, it will shift all the nu
 
 Math.floor(Math.random() * (max - min + 1)) + min;
 
+##### The conditional operator (ternary operator) 
+Can be used as a one line if-else expression.
+
+The syntax is a ? b : c, where a is the condition, b is the code to run when the condition returns true, and c is the code to run when the condition returns false.
+
+##### To check if num is +ve or -ve
+`
+function checkSign(num) {
+  return num > 0 ? "positive"
+    : num < 0 ? "negative"
+    : "zero";
+}
+`
