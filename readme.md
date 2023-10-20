@@ -161,3 +161,63 @@ However, notice that multiply(arr, n) == multiply(arr, n - 1) * arr[n - 1]. That
 The recursive version of multiply breaks down like this. In the base case, where n <= 0, it returns 1. For larger values of n, it calls itself, but with n - 1. That function call is evaluated in the same way, calling multiply again until n <= 0. At this point, all the functions can return and the original multiply returns the answer.
 
 Note: Recursive functions must have a base case when they return without calling the function again (in this example, when n <= 0), otherwise they can never finish executing.
+
+
+##### Math.floor( Math.random() * (max - min) + min)
+We know that Math.random() returns a value in the range [0, 1). 0 is included but 1 is excluded. You can think of it as the range 0 to 0.999999...
+
+Now let's pass that result to the Math.floor() function.
+
+Math.floor(Math.random());
+Since floor will truncate the decimal and give you back the whole number part we're always going to get 0 here. Make sure you understand that or the rest isn't going to make any sense. Ask questions if you need to.
+
+We can only get 1 integer out of this. It's not so much important that the integer is 0 but that we can only get 1 integer out.
+
+If we are going to be able to get more numbers out of this then we need to make that range bigger. When you multiply something by 2 it becomes twice as big as it was before. It scales up by a factor of 2. Let's see what happens when we multiply Math.random() by 2
+
+Math.floor(Math.random() * 2);
+That will give us a new range of 0 to 1.999999... which is twice as big as the range we started with.
+
+What happens when those numbers are passed into Math.floor? All the numbers generated from 0 to 0.9999... will be truncated to 0 and all the numbers from 1 to 1.9999... will be truncated to 1
+
+Now we're able to get 2 different integers out of this. If we multiply by 2 we can get 2 numbers back. It stands to reason that if we multiply by 6 then we will be able to get 6 numbers out.
+
+That will give us a range that's 6 times as big, 0 to 5.99999.....
+
+I won't write it all out but after passing through the floor function you would get
+
+0 to .99999... -> 0
+1 to 1.99999... -> 1
+...
+5 to 5.99999... -> 5
+In general, whatever you multiply Math.random() by is how many integers you'll be able to generate.
+
+Now we can start deriving the formula and I'll use a specific example to help.
+
+Let's say we want to generate numbers from 5 to 10 inclusive. We need to know how many numbers are there.
+
+Setting up the variables -
+
+var max = 10;
+var min = 5;
+If we list them out, 5, 6, 7, 8, 9, 10 and count them we see that there are 6 total numbers. We know from before that we're going to have to multiply by 6 in order to get 6 numbers out.
+
+How can we come up with the 6 using our max and min variables?? If I do max - min I get 5 which is 1 short. max - min gives you the distance from 5 to 10. You always have to add 1 to that if you want the total amount of numbers.
+
+That gives us the expression max - min + 1
+
+Putting that into the formula,
+
+Math.floor(Math.random() * (max - min + 1));
+It's important that max - min + 1 is enclosed in parentheses so that all of that happens before the multiplication.
+
+At this point the formula can generate the correct amount of numbers but they always start at 0 because the range from Math.random starts from 0.
+
+0, 1, 2, 3, 4,  5 // What we have
+5, 6, 7, 8, 9, 10 // What we want
+Notice that if we add 5 to all the numbers in the first row, we'll get the second row. 5 is what our min value is in the example.
+
+So if we add the min value onto the end of our formula, it will shift all the numbers over to the ones we want.
+
+Math.floor(Math.random() * (max - min + 1)) + min;
+
