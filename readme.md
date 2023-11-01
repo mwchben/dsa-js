@@ -270,3 +270,35 @@ const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
 console.log(a, b, c);
 The console will display the values of a, b, and c as 1, 2, 5.
 
+Sample Codes
+By using a destructuring assignment to emulate the behavior of Array.prototype.slice().removeFirstTwo() to return a sub-array of the original array list with the first two elements omitted.
+If you console log list,, should give thev array without 1 & 2
+`
+function removeFirstTwo(list) {
+  const [a,b, ...arr] = list
+  list = arr
+  return list;
+}
+
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const sourceWithoutFirstTwo = removeFirstTwo(source);
+
+`
+
+https://blog.webdevsimplified.com/2020-08/destructuring-and-spread/
+
+##### REGEX
+
+Regular expressions are used in programming languages to match parts of strings. You create patterns to help you do that matching.
+
+If you want to find the word the in the string The dog chased the cat, you could use the following regular expression: /the/. Notice that quote marks are not required within the regular expression.
+
+JavaScript has multiple ways to use regexes. One way to test a regex is using the .test() method. The .test() method takes the regex, applies it to a string (which is placed inside the parentheses), and returns true or false if your pattern finds something or not.
+
+`
+let testStr = "freeCodeCamp";
+let testRegex = /Code/;
+testRegex.test(testStr);
+`
+
+The test method here returns true.
