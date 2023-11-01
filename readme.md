@@ -289,9 +289,9 @@ https://blog.webdevsimplified.com/2020-08/destructuring-and-spread/
 
 ##### REGEX
 
-Regular expressions are used in programming languages to match parts of strings. You create patterns to help you do that matching.
+Regular expressions are used in programming languages to match parts of strings. TO create patterns to help you that matching.
 
-If you want to find the word the in the string The dog chased the cat, you could use the following regular expression: /the/. Notice that quote marks are not required within the regular expression.
+To find the word the in the string The dog chased the cat, one could use the following regular expression: /the/. Notice that quote marks are not required within the regular expression.
 
 JavaScript has multiple ways to use regexes. One way to test a regex is using the .test() method. The .test() method takes the regex, applies it to a string (which is placed inside the parentheses), and returns true or false if your pattern finds something or not.
 
