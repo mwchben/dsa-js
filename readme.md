@@ -301,4 +301,17 @@ let testRegex = /Code/;
 testRegex.test(testStr);
 `
 
-The test method here returns true.
+The test method here returns true.You can also extract the actual matches you found with the .match() method. Note that the .match syntax is the "opposite" of the .test method as:
+
+`
+'string'.match(/regex/);
+/regex/.test('string');
+`
+
+`
+let ourStr = "Regular expressions";
+let ourRegex = /expressions/;
+ourStr.match(ourRegex);
+`
+
+Here match would return ["expressions"].
