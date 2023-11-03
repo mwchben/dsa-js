@@ -293,7 +293,8 @@ Regular expressions are used in programming languages to match parts of strings.
 
 To find the word the in the string The dog chased the cat, one could use the following regular expression: /the/. Notice that quote marks are not required within the regular expression.
 
-JavaScript has multiple ways to use regexes. One way to test a regex is using the .test() method. The .test() method takes the regex, applies it to a string (which is placed inside the parentheses), and returns true or false if your pattern finds something or not.
+JavaScript has multiple ways to use regexes. One way to test a regex is
+ using the .test() method. The .test() method takes the regex, applies it to a string (which is placed inside the parentheses), and returns true or false if your pattern finds something or not.
 
 `
 let testStr = "freeCodeCamp";
@@ -315,3 +316,15 @@ ourStr.match(ourRegex);
 `
 
 Here match would return ["expressions"].
+To search or extract a pattern more than once, you can use the global search flag: g and insensitive flag i for ignoring case.
+
+`
+let testStr = "Repeat, Repeat, Repeat";
+let ourRegex = /Repeat/g;
+testStr.match(ourRegex);
+`
+
+here match returns the value ["Repeat", "Repeat", "Repeat"]
+
+If you don't know the exact characters in your patterns, you can save time using the wildcard character: . ( dot or period). 
+For example, if you wanted to match hug, huh, hut, and hum, you can use the regex /hu./ to match all four words.
