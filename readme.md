@@ -328,3 +328,28 @@ here match returns the value ["Repeat", "Repeat", "Repeat"]
 
 If you don't know the exact characters in your patterns, you can save time using the wildcard character: . ( dot or period). 
 For example, if you wanted to match hug, huh, hut, and hum, you can use the regex /hu./ to match all four words.
+
+You can search for a literal pattern with some flexibility with character classes. Character classes allow you to define a group of characters you wish to match by placing them inside square ([ and ]) brackets.
+
+For example, you want to match bag, big, and bug but not bog. You can create the regex /b[aiu]g/ to do this. The [aiu] is the character class that will only match the characters a, i, or u.
+
+Inside a character set, you can define a range of characters to match using a hyphen character: -.
+
+For example, to match lowercase letters a through e you would use [a-e].
+`
+let catStr = "cat";
+let batStr = "bat";
+let matStr = "mat";
+let bgRegex = /[a-e]at/;
+catStr.match(bgRegex);
+batStr.match(bgRegex);
+matStr.match(bgRegex);
+`
+In order, the three match calls would return the values ["cat"], ["bat"], and null.
+
+To create a negated character set(for a set of characters that you do not want to match), you place a caret character (^) after the opening bracket and before the characters you do not want to match.
+For example, /[^aeiou]/gi matches all characters that are not a vowel. Note that characters like ., !, [, @, / and white space are matched - the negated vowel character set only excludes the vowel characters.
+
+To match a character/group of characters that appears one or more times in a row and may be repeated; we use the + character to check if that is the case (but the character has to repeat one after the other).
+
+For example, /a+/g would find one match in abc and return ["a"]. Because of the +, it would also find a single match in aabc and return ["aa"]. If it were instead checking the string abab, it would find two matches and return ["a", "a"] because the a characters are not in a row - there is a b between them. Finally, since there is no a in the string bcd, it wouldn't find a match.
