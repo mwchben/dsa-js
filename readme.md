@@ -287,7 +287,7 @@ const sourceWithoutFirstTwo = removeFirstTwo(source);
 
 https://blog.webdevsimplified.com/2020-08/destructuring-and-spread/
 
-##### REGEX
+##### REGEX [Cheatsheet](https://www.shortcutfoo.com/app/dojos/regex/cheatsheet)
 
 Regular expressions are used in programming languages to match parts of strings. TO create patterns to help you that matching.
 
@@ -350,6 +350,58 @@ In order, the three match calls would return the values ["cat"], ["bat"], and nu
 To create a negated character set(for a set of characters that you do not want to match), you place a caret character (^) after the opening bracket and before the characters you do not want to match.
 For example, /[^aeiou]/gi matches all characters that are not a vowel. Note that characters like ., !, [, @, / and white space are matched - the negated vowel character set only excludes the vowel characters.
 
+NB:
+Outside of a character set, the caret is used to search for patterns at the beginning of strings.
+`
+let firstString = "Ricky is first and can be found.";
+let firstRegex = /^Ricky/;
+firstRegex.test(firstString);
+let notFirst = "You can't find Ricky now.";
+firstRegex.test(notFirst);
+The first test call would return true, while the second would return false.
+`
+To search for patterns at the end of strings use the dollar sign character $ at the end of the regex.
+
 To match a character/group of characters that appears one or more times in a row and may be repeated; we use the + character to check if that is the case (but the character has to repeat one after the other).
 
 For example, /a+/g would find one match in abc and return ["a"]. Because of the +, it would also find a single match in aabc and return ["aa"]. If it were instead checking the string abab, it would find two matches and return ["a", "a"] because the a characters are not in a row - there is a b between them. Finally, since there is no a in the string bcd, it wouldn't find a match.
+There's also an option that matches characters that occur zero or more times (asterisk or star: *). Remember the wildcard . in a regular expression matches any character.  
+
+Any letter in a regex expression that is followed by a * does not have to occur in the string tested whereas any letter in a regex expression followed by a + must occur in a string at least once, as shown below,
+`
+let phrase = "ba humbug";
+
+let regexPlus = /bah+/;
+let regexStar = /bah*/;
+
+regexPlus.test(phrase); // returns false
+regexStar.test(phrase); // returns true
+`
+
+The shortcut to look for digit characters is \d, with a lowercase d. This is equal to the character class [0-9], which looks for a single character of any number between zero and nine.
+The shortcut to look for non-digit characters is \D. This is equal to the character class [^0-9], which looks for a single character that is not a number between zero and nine.   
+
+###### Quick Test
+[-] For
+Usernames can only use alphanumeric characters.
+
+The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
+
+Username letters can be lowercase and uppercase.
+
+Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
+`
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
+let result = userCheck.test(username);
+console.log(result)
+`
+[-] where:
+- ^ - start of input
+- [a-z] - first character is a letter
+- [a-z]+ - following characters are letters
+- \d*$ - input ends with 0 or more digits
+- | - or
+- ^[a-z] - first character is a letter
+- \d\d+ - following characters are 2 or more digits
+- $ - end of input
