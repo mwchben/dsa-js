@@ -36,6 +36,9 @@ const anotherObject = {
 However, if your object has any non-string properties, JavaScript will automatically typecast them as strings.
 2
 
+##### NB
+JavaScript recognizes seven primitive (immutable) data types: Boolean, Null, Undefined, Number, String, Symbol (new with ES6), and BigInt (new with ES2020), and one type for mutable items: Object. Note that in JavaScript, arrays are technically a type of object.
+
 #### Accessing Object Properties with Variables
 - Another use of bracket notation on objects is to access a property which is stored as the value of a variable. - This can be very useful for iterating through an object's properties or when accessing a lookup table.
 
@@ -393,6 +396,11 @@ let result = ohRegex.test(ohStr);
 
 To check for existence of a letter;i.e, the previous element is optional, we use ? e.g Favou?rite to show (u) is optional as in American English.
 
+###### For lookaheads: 
+1. A positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it. A positive lookahead is used as (?=...) where the ... is the required part that is not matched.
+
+2. A negative lookahead will look to make sure the element in the search pattern is not there. A negative lookahead is used as (?!...) where the ... is the pattern that you do not want to be there. The rest of the pattern is returned if the negative lookahead part is not present.
+
 ###### Quick Test
 [-] For
 Usernames can only use alphanumeric characters.
@@ -417,3 +425,5 @@ console.log(result)
 - ^[a-z] - first character is a letter
 - \d\d+ - following characters are 2 or more digits
 - $ - end of input
+
+To select a substrings at the beginning or end of a string.use -> let all = /^\s+|\s+$/g;
