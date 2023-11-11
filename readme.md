@@ -42,7 +42,7 @@ However, if your object has any non-string properties, JavaScript will automatic
 - JavaScript indexing starts at zero, not one, which means the last index is always one less than the length of the item. If you try to access an index equal to the length, the program may throw an "index out of range" reference error or print undefined.
  - splice() allows us to do just that: remove any number of consecutive elements from anywhere in an array; to remove elements from the beginning and end of arrays using shift() and pop(); unshift() and push() to add elements.
  - If we have bumbers.splice(startIndex, amountToDelete, 13, 14); the 13 and 14 are added in the 'amount to delete' part.
-
+ -  Rather than modifying an array, slice() copies or extracts a given number of elements to a new array, leaving the array it is called upon untouched. slice() takes only 2 parameters — the first is the index at which to begin extraction, and the second is the index at which to stop extraction (extraction will occur up to, but not including the element at this index).
 #### Accessing Object Properties with Variables
 - Another use of bracket notation on objects is to access a property which is stored as the value of a variable. - This can be very useful for iterating through an object's properties or when accessing a lookup table.
 
