@@ -70,3 +70,80 @@ After the switch statement, the if statement checks count, which is now 0.
 This then drops down to the else statement, which will return 0 Hold.
 Note: As mentioned earlier, the switch statement could have also been an else if statement.
 */
+
+//Return Largest Numbers in Arrays
+function largestOfFour(arr) {
+  const results = [];
+  for (let i = 0; i < arr.length; i++) {
+    let largestNumber = arr[i][0];
+    for (let j = 1; j < arr[i].length; j++) {
+      if (arr[i][j] > largestNumber) {
+        largestNumber = arr[i][j];
+      }
+    }
+    results[i] = largestNumber;
+  }
+
+  return results;
+}
+
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+/*
+Confirm the Ending
+Check if a string (first argument, str) ends with the given target string (second argument, target).
+
+This challenge can be solved with the .endsWith() method, but now using one of the JavaScript substring methods instead.
+*/
+
+function confirmEnding(str, target) {
+
+  return str.slice(str.length - target.length) === target;
+}
+
+confirmEnding("He has to give me a new name", "name");
+
+/*
+Code Explanation
+- First we use the slice method copy the string.
+- In order to get the last characters in str equivalent to the target's length we use the slice method.
+- The first parameter inside the slice method is the starting index and the second parameter would be the ending index.
+- For example str.slice(10, 17) would return give me.
+- In this case we only include one parameter which it will copy everything from the starting index.
+- We substract the length of str and the length of target, that way, we shall get the last remaining characters equivalent to the target's length.
+- Finally we compare the return result of slice to target and check if they have the same characters.
+*/
+
+
+
+/*
+Repeat a String Challenge
+Repeat a given string str (first argument) for num times (second argument). 
+Return an empty string if num is not a positive number. 
+For the purpose of this challenge, do not use the built-in .repeat() method.
+*/
+
+// 1. Using Recursion   
+function repeatStringNumTimes(str, num) {
+  // We check if num is negative and return an empty string if true.
+  if (num < 1) {
+    return "";
+
+  //If not, we add the string to a call of our function with num being decreased by 1, 
+  //which will add another str and another… until eventually num is 1. And return that whole process.
+  } else {
+    return str + repeatStringNumTimes(str, num - 1);
+  }
+}
+
+//2. Using for loop
+
+function repeatStringNumTimes(str, num) {
+  let accumulatedStr = "";//Create an empty string variable to store the repeated word
+
+  for (let i = 0; i < num; i++) { //Use a for loop to repeat code as many times as needed according to num
+    accumulatedStr += str;//Then we add the string to the variable created on step one inside of the loop
+  }
+
+  return accumulatedStr;
+}
