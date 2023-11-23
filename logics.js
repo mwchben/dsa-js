@@ -147,3 +147,37 @@ function repeatStringNumTimes(str, num) {
 
   return accumulatedStr;
 }
+
+
+/* 
+runcate a String
+Truncate a string (first argument) if it is longer than the given maximum string length (second argument). 
+Return the truncated string with a ... ending.
+*/
+
+function truncateString(str, num) {
+
+  // If our string length is greater than the num we want to truncate it, we return a slice 
+  // of our string starting at character 0, and ending at num. We then append our '...' to the end of the string.
+  if (str.length > num) {
+    return str.slice(0, num) + "...";
+  // However, if above situation is not true, it means our string length is less
+  // than our truncation num. Therefore, we can just return the string.
+  } else {
+    return str;
+  }
+}
+
+/* Title Case a Sentence
+Split the string by white spaces, and create a variable to track the updated title. 
+Then we use a loop to turn turn the first character of the word to uppercase and the rest to lowercase. 
+by creating concatenated string composed of the whole word in lowercase with the first character replaced by its uppercase.
+*/
+function titleCase(str) {
+  const newTitle = str.split(" ");
+  const updatedTitle = [];
+  for (let st in newTitle) {
+    updatedTitle[st] = newTitle[st][0].toUpperCase() + newTitle[st].slice(1).toLowerCase();
+  }
+  return updatedTitle.join(" ");
+}

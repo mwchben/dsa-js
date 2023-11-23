@@ -39,6 +39,7 @@ However, if your object has any non-string properties, JavaScript will automatic
 ##### NB
 - JavaScript recognizes seven primitive (immutable) data types: Boolean, Null, Undefined, Number, String, Symbol (new   with ES6), and BigInt (new with ES2020), and one type for mutable items: Object. Note that in JavaScript, arrays are technically a type of object.
 - Almost every value on its own in JavaScript evaluates to true, except what are known as the "falsy" values: false, 0, "" (an empty string), NaN, undefined, and null.
+ `Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.`
 - JavaScript indexing starts at zero, not one, which means the last index is always one less than the length of the item. If you try to access an index equal to the length, the program may throw an "index out of range" reference error or print undefined.
  - splice() allows us to do just that: remove any number of consecutive elements from anywhere in an array; to remove elements from the beginning and end of arrays using shift() and pop(); unshift() and push() to add elements.
  - If we have bumbers.splice(startIndex, amountToDelete, 13, 14); the 13 and 14 are added in the 'amount to delete' part.
