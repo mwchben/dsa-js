@@ -181,3 +181,35 @@ function titleCase(str) {
   }
   return updatedTitle.join(" ");
 }
+
+// Remove a flasy value from an array like undefined, null, NaN, 0, “” 
+//  truthy values in JavaScript will be coerced to true in boolean contexts when the if block executes
+function bouncer(arr) {
+  const filteredArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]){
+      filteredArr.push(arr[i]);
+    } 
+  }
+  return filteredArr;
+}
+
+
+/*
+  find props in an object
+*/
+
+function Bird(name) {
+  this.name = name;
+  this.numLegs = 2;
+}
+
+let canary = new Bird("Tweety");
+let ownProps = [];
+// Only change code below this line
+
+for (let prop in canary){
+  if(canary.hasOwnProperty(prop)){
+    ownProps.push(prop)
+  }
+}
