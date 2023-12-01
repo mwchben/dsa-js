@@ -213,3 +213,11 @@ for (let prop in canary){
     ownProps.push(prop)
   }
 }
+
+// To add a prop to a class for all object do:
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype.numLegs = 4;
+let beagle = new Dog("Snoopy");

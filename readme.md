@@ -46,6 +46,17 @@ However, if your object has any non-string properties, JavaScript will automatic
  -  Rather than modifying an array, slice() copies or extracts a given number of elements to a new array, leaving the array it is called upon untouched. slice() takes only 2 parameters — the first is the index at which to begin extraction, and the second is the index at which to stop rextraction (extraction will occur up to, but not including the element at this index).
  - Since arrays can be changed, or mutated, at any time, there's no guarantee about where a particular piece of data will be on a given array, or if that element even still exists. JavaScript provides a built-in method, indexOf(), that allows a quick and easily check for the presence of an element on an array. It takes an element as a parameter, and when called, it returns the position, or index, of that element, or -1 if the element does not exist on the array.
 
+ - ##### Own properties are defined directly on the object instance itself. And prototype properties are defined on the prototype.
+ - ###### In the image below,
+  each instance of person is linked to the same prototype object. This saves memory if multiple instances are created pointing to the same object. However, if you change 'Earth' to 'Mars' every instance will have the same change.
+ ![Prototype](image.png)
+
+ - ###### In the image below,
+  each instance will point to a completely different property linked specifically to that instance. If you believe a specific planet can change names, you should do this.. otherwise use prototype because this will use more resources.
+ ![Instance](image-1.png)
+
+
+
 #### Accessing Object Properties with Variables
 - Another use of bracket notation on objects is to access a property which is stored as the value of a variable. - This can be very useful for iterating through an object's properties or when accessing a lookup table.
 
