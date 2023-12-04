@@ -221,3 +221,24 @@ function Dog(name) {
 
 Dog.prototype.numLegs = 4;
 let beagle = new Dog("Snoopy");
+
+// To iterate over all of them by ownProps and prototypes
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype.numLegs = 4;
+
+let bagle = new Dog("Snoopy");
+
+let ownProperties = [];
+let prototypeProps = [];
+
+for(let prop in beagle){
+  if(beagle.hasOwnProperty(prop)){
+    ownProperties.push(prop)
+  }
+  else{
+    prototypeProps.push(prop)
+  }
+}
