@@ -92,8 +92,31 @@ function joinBirdFraternity(candidate) {
   Bird.prototype.constructor = Bird;
   duck.constructor
 `
+- ###### Mixin
+Use a Mixin to Add Common Behavior Between Unrelated Objects where there both objects share the 
+same function but inheritance is not the best solution. It allows other objects to use a collection of functions.
+`
+let flyMixin = function(obj) {
+  obj.fly = function() {
+    console.log("Flying, wooosh!");
+  }
+};
+The flyMixin takes any object and gives it the fly method.
 
+let bird = {
+  name: "Donald",
+  numLegs: 2
+};
 
+let plane = {
+  model: "777",
+  numPassengers: 524
+};
+
+flyMixin(bird);
+flyMixin(plane);
+
+`
 
 #### Accessing Object Properties with Variables
 - Another use of bracket notation on objects is to access a property which is stored as the value of a variable. - This can be very useful for iterating through an object's properties or when accessing a lookup table.
@@ -113,6 +136,50 @@ const myBreed = dogs[myDog];
 console.log(myBreed);
 `
 The string Doberman would be displayed in the console.
+
+- ###### Using Immediately Invoked Function Expression (IIFE)
+In JavaScript to execute a function as soon as it is declared we use two parentheses () at the end of the function expression to cause it to be immediately executed or invoked. 
+Note that the function has no name and is not stored in a variable. 
+`
+(function () {
+  console.log("Chirp, chirp!");
+})();
+`
+This is an anonymous function expression that executes right away, and outputs Chirp, chirp! immediately.
+
+- ###### Use an IIFE to Create a Module
+An immediately invoked function expression (IIFE) is often used to group related functionality into a single object or module. For example:
+
+function glideMixin(obj) {
+  obj.glide = function() {
+    console.log("Gliding on the water");
+  };
+}
+function flyMixin(obj) {
+  obj.fly = function() {
+    console.log("Flying, wooosh!");
+  };
+}
+Can be grouped into a module as follows:
+
+let motionModule = (function () {
+  return {
+    glideMixin: function(obj) {
+      obj.glide = function() {
+        console.log("Gliding on the water");
+      };
+    },
+    flyMixin: function(obj) {
+      obj.fly = function() {
+        console.log("Flying, wooosh!");
+      };
+    }
+  }
+})();
+Note that you have an immediately invoked function expression (IIFE) that returns an object motionModule. This returned object contains all of the mixin behaviors as properties of the object. The advantage of the module pattern is that all of the motion behaviors can be packaged into a single object that can then be used by other parts of your code. Here is an example using it:
+
+motionModule.glideMixin(duck);
+duck.glide();
 
 ### Queue
 
