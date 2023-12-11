@@ -85,6 +85,13 @@ function joinBirdFraternity(candidate) {
     }
     let beagle = new Dog(); 
  `
+ When an object inherits its prototype from another object, it also inherits 
+ the supertype's constructor property; hence manually set the constructor property of Dog to the Dog object:
+  as:
+` 
+  Bird.prototype.constructor = Bird;
+  duck.constructor
+`
 
 
 
