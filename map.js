@@ -117,8 +117,18 @@ const watchList = [
   const ratings = watchList.map(item => ({
     title : item["Title"],
     rating : item["imdbRating"]
+    /* or  
+            title : item.Title,
+            rating : item.imdbRating 
+    */
   }))
   
-
-  
   console.log(JSON.stringify(ratings));
+
+  // to filter imdbRating with 8 rating and up
+  const filteredList = watchList.filter(item => {
+    return parseFloat(item.imdbRating) >= 8.0
+  }).map(item=>  ({
+    title : item["Title"],
+    rating : item["imdbRating"]
+  }))
