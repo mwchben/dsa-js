@@ -550,3 +550,22 @@ console.log(result)
 - $ - end of input
 
 To select a substrings at the beginning or end of a string.use -> let all = /^\s+|\s+$/g;
+
+
+#### Map
+The map method iterates over each item in an array and returns a new array containing the results of calling the callback function on each element. It does this without mutating the original array; It doesn't alter the original array, as long as its callback function doesn't.
+
+When the callback is used, it is passed three arguments. The first argument is the current element being processed. The second is the index of that element and the third is the array upon which the map method was called.
+
+In other words, map is a pure function, and its output depends solely on its inputs. Plus, it takes another function as its argument.
+
+A sample myMapfunction that would act as Map() function
+`
+Array.prototype.myMap = function(callback) {
+  const newArray = [];
+  for (let i = 0; i < this.length; i++) {
+    newArray.push(callback(this[i], i, this));
+  }
+  return newArray;
+};
+`
