@@ -552,7 +552,7 @@ console.log(result)
 To select a substrings at the beginning or end of a string.use -> let all = /^\s+|\s+$/g;
 
 
-#### Map
+#### Map()
 The map method iterates over each item in an array and returns a new array containing the results of calling the callback function on each element. It does this without mutating the original array; It doesn't alter the original array, as long as its callback function doesn't.
 
 When the callback is used, it is passed three arguments. The first argument is the current element being processed. The second is the index of that element and the third is the array upon which the map method was called.
@@ -569,3 +569,10 @@ Array.prototype.myMap = function(callback) {
   return newArray;
 };
 `
+
+#### Filter() / Array.prototype.filter()
+
+The filter calls a function on each element of an array and returns a new array containing only the elements for which that function returns a truthy value - that is, a value which returns true if passed to the Boolean() constructor. 
+In other words, it filters the array, based on the function passed to it. Like map, it does this without needing to modify the original array.
+
+The callback function accepts three arguments. The first argument is the current element being processed. The second is the index of that element and the third is the array upon which the filter method was called.
