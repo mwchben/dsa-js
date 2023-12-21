@@ -680,3 +680,16 @@ function impartial(x, y, z) {
 
 const partialFn = impartial.bind(this, 1, 2);
 partialFn(10); // 13
+
+###### Sum of all numbers between a range 
+
+function sumAll(arr) {
+  let max = Math.max(arr[0], arr[1])
+  let min = Math.min(arr[0], arr[1])
+  let sum = 0;
+
+  for (let i = min; i<=max; i++){
+    sum+=i;
+  }
+  return sum;
+}
