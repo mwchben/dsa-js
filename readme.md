@@ -559,7 +559,7 @@ When the callback is used, it is passed three arguments. The first argument is t
 
 In other words, map is a pure function, and its output depends solely on its inputs. Plus, it takes another function as its argument.
 
-A sample myMapfunction that would act as Map() function
+A sample myMap function that would act as Map() function
 `
 Array.prototype.myMap = function(callback) {
   const newArray = [];
@@ -576,3 +576,87 @@ The filter calls a function on each element of an array and returns a new array 
 In other words, it filters the array, based on the function passed to it. Like map, it does this without needing to modify the original array.
 
 The callback function accepts three arguments. The first argument is the current element being processed. The second is the index of that element and the third is the array upon which the filter method was called.
+
+A sample myFilter function that would act as Filter() function
+`
+  Array.prototype.myFilter = function(callback) {
+  const newArray = [];
+  for (let i=0; i<this.length; i++){
+    if(callback(this[i],i,this)){
+      newArray.push(this[i])
+    }
+  }
+  return newArray;
+};
+`
+
+#### Slice() - Return Part of an Array
+
+The slice method returns a copy of certain elements of an array. ( does not mutate the original array, but returns a new one which can be saved into a variable)
+It can take two arguments, the first gives the index of where to begin the slice & the second is the index for where to end the slice (and it's non-inclusive). 
+NB::If the arguments are not provided, the default is to start at the beginning of the array through the end, which is an easy way to make a copy of the entire array. The slice method does not mutate the original array, but returns a new one
+
+###### Splice vs Slice
+To remove items and keep the rest of the array, JavaScript offers the splice method that takes arguments for the index of where to start removing items, then the number of items to remove. 
+NB::If the second argument is not provided, the default is to remove items through the end. 
+The splice method mutates the original array it is called on hence using the slice method instead of splice helps to avoid any array-mutating side effects.
+
+###### Return Alphabetical order 
+If compareFunction(a,b) returns a value less than 0 for two elements a and b, then a will come before b. If compareFunction(a,b) returns a value greater than 0 for two elements a and b, then b will come before a. If compareFunction(a,b) returns a value equal to 0 for two elements a and b, then a and b will remain unchanged.
+
+i.e::
+We will use the sort() method alongside the compare function to order this array of users by name.
+
+We will use the compare function to define an alternative sort order. It returns a negative, zero, or positive value, depending on the arguments:
+
+Syntax:
+
+function(a, b){return a - b}
+When we pass this comparison function into the sort() method, it compares each value based on the condition we set and then sorts each name according to the returned value (negative, zero, positive).
+
+If the result is negative, a is sorted before b.
+If the result is positive, b is sorted before `a'.
+If the result is 0, no changes are made to the sort order of the two values.
+
+`
+function alphabeticalOrder(arr) {
+  return arr.sort(function(a,b){
+    return a===b ? 0 : a < b ? -1:1;
+  })
+}
+
+let answer = alphabeticalOrder(["a", "d", "c", "a", "z", "g"]);
+console.log(answer)
+`
+
+Without mutating the array()
+
+`
+const globalArray = [5, 6, 3, 2, 9];
+
+function nonMutatingSort(arr) {
+let newArr = arr.slice()
+
+return newArr.sort(function(a,b){
+  return a===b ? 0 : a<b ? -1:1
+})
+
+}
+
+nonMutatingSort(globalArray);
+`
+
+###### to Combine an Array into a String Using the join Method
+`
+function sentensify(str) {
+  return str.split(/\W/).join(" ");
+}
+sentensify("May-the-force-be-with-you");
+`
+
+###### to Convert Strings to URL Slugs
+`
+function urlSlug(title) {
+return title.trim().split(/\s+/).join("-").toLowerCase() 
+}
+`
