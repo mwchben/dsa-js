@@ -132,3 +132,59 @@ const watchList = [
     title : item["Title"],
     rating : item["imdbRating"]
   }))
+
+  //  to find the average IMDB rating of the movies directed by Christopher Nolan
+  function getRating(watchList) {
+    let averageRating = watchList
+    .filter(item => item["Director"] === "Christopher Nolan")
+    .map(item =>  parseFloat(item.imdbRating)
+    ).reduce((sum,rating) => sum + rating) //JS here has an accumulator Sum and current Value it iterates with as rating
+     /
+      watchList.filter(item => item.Director === "Christopher Nolan").length
+      return averageRating;
+  }
+
+  console.log(getRating(watchList))
+
+// To return a new array containing the squares of only the positive integers (decimal numbers are not integers) 
+// when an array of real numbers is passed to it. An example of an array of real numbers is [-3, 4.8, 5, 3, -3.2].
+
+const squareList = arr => {
+    let newArr = arr.filter(item => item>0 && item % parseInt(item) === 0).map(num => Math.pow(num, 2));
+  
+    return newArr;
+  };
+  
+  const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+  console.log(squaredIntegers);
+  /*
+  
+  The negatives are removed by num > 0
+
+Now,
+num % parseInt(num) === 0
+
+Let’s use the number 5.2
+5.2 % parseInt(5.2) === 0
+parseInt makes an integer of whatever is inside it
+5.2 % 5 === 0
+0.2 === 0
+false
+
+Or with a number like 6
+6 % parseInt(6) === 0
+6 % 6 === 0
+0 === 0
+true
+
+Yes, it would work the same and be easier to understand with num % 1 === 0 but the result is the same
+  */
+
+function alphabeticalOrder(arr) {
+  return arr.sort(function(a,b){
+    return a===b ? 0 : a < b ? -1:1;
+  })
+}
+
+let answer = alphabeticalOrder(["a", "d", "c", "a", "z", "g"]);
+console.log(answer)
