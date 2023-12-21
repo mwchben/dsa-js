@@ -660,3 +660,23 @@ function urlSlug(title) {
 return title.trim().split(/\s+/).join("-").toLowerCase() 
 }
 `
+
+###### Currying in a function
+This technique converts N arguments function calls into N function call chains, with each function call having a single argument. Currying returns a function with an argument until all the arguments are applied. Then, you have to continue to call the returned function until the arguments have been exhausted and it returns the final value.
+function add(a){
+  return function(b){
+    return a + b
+  }
+}
+
+add(3)(5)
+
+###### Partial Application 
+Described as applying a few arguments to a function at a time and returning another function that is applied to more arguments:
+
+function impartial(x, y, z) {
+  return x + y + z;
+}
+
+const partialFn = impartial.bind(this, 1, 2);
+partialFn(10); // 13
