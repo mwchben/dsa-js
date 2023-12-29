@@ -13,3 +13,36 @@ function palindrome(str) {
     return false
   }
   }
+
+  // number to Roman numeral  converter
+
+  function convertToRoman(num) {
+    const lukap = {
+      M	: 1000,
+      CM	:900,
+      D	:500,
+      CD	:400,
+      C :	100,
+      XC :	90,
+      L	: 50,
+      XL :	40,
+      X	: 10,
+      IX :	9,
+      V	: 5,
+      IV :	4,
+      I	: 1
+    }
+  
+    let accumul = "";
+    
+      for (const key in lukap){
+      const valueOfKey = lukap[key];
+        while(valueOfKey<=num){
+        num-=valueOfKey;
+        accumul+=key;
+      }
+    }
+   return accumul;
+  }
+  
+  convertToRoman(36);
